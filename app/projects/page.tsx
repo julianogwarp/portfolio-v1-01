@@ -1,28 +1,17 @@
-import Link from "next/link";
-import React from "react";
-import { allProjects } from "contentlayer/generated";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
-import { Article } from "./article";
-import { Redis } from "@upstash/redis";
-import { Eye } from "lucide-react";
+import { allProjects } from 'contentlayer/generated';
+import Link from 'next/link';
+import React from 'react';
+import Image from 'next/image';
+import { Card } from '../components/card';
+import { Navigation } from '../components/nav';
+import { Article } from './article';
 
-const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
-	const views = (
-		await redis.mget<number[]>(
-			...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-		)
-	).reduce((acc, v, i) => {
-		acc[allProjects[i].slug] = v ?? 0;
-		return acc;
-	}, {} as Record<string, number>);
-
-	const featured = allProjects.find((project) => project.slug === "unkey")!;
+	const featured = allProjects.find((project) => project.slug === "planetfall")!;
 	const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-	const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+	const top3 = allProjects.find((project) => project.slug === "upstash-auth-analytics")!;
 	const sorted = allProjects
 		.filter((p) => p.published)
 		.filter(
@@ -42,7 +31,7 @@ export default async function ProjectsPage() {
 			<Navigation />
 			<div className="px-6 pt-16 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
 				<div className="max-w-2xl mx-auto lg:mx-0">
-					<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+					<h2 className="text-3xl font-bold tracking-tight text-zinc-800 sm:text-4xl">
 						Projects
 					</h2>
 					<p className="mt-4 text-zinc-400">
@@ -56,7 +45,7 @@ export default async function ProjectsPage() {
 						<Link href={`/projects/${featured.slug}`}>
 							<article className="relative w-full h-full p-4 md:p-8">
 								<div className="flex items-center justify-between gap-2">
-									<div className="text-xs text-zinc-100">
+									<div className="text-sm duration-500 text-sky-400 group-hover:text-sky-400 group-hover:border-zinc-800 drop-shadow-orange">
 										{featured.date ? (
 											<time dateTime={new Date(featured.date).toISOString()}>
 												{Intl.DateTimeFormat(undefined, {
@@ -66,40 +55,41 @@ export default async function ProjectsPage() {
 										) : (
 											<span>SOON</span>
 										)}
-									</div>
-									<span className="flex items-center gap-1 text-xs text-zinc-500">
-										<Eye className="w-4 h-4" />{" "}
-										{Intl.NumberFormat("en-US", { notation: "compact" }).format(
-											views[featured.slug] ?? 0,
-										)}
-									</span>
+									</div>		
 								</div>
-
 								<h2
 									id="featured-post"
-									className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+									className="mt-4 text-3xl font-bold text-zinc-700  sm:text-4xl font-display"
 								>
 									{featured.title}
 								</h2>
-								<p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+								<p className="z-20 mt-4 mb-10 text-sm h-20 duration-1000 text-zinc-400 group-hover:text-zinc-700 font-sans">
 									{featured.description}
 								</p>
-								<div className="absolute bottom-4 md:bottom-8">
-									<p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+								<div className="flex justify-center">
+								<Image 
+								
+				alt="blog"
+				width={300}
+				height={300}
+				src={featured.image ? featured.image : 'favicon.png'}
+				/></div>
+								<div className="absolute bottom-4 pt-8 md:bottom-8">
+									<p className="hidden text-zinc-700 hover:text-zinc-300 lg:block">
 										Read more <span aria-hidden="true">&rarr;</span>
 									</p>
 								</div>
 							</article>
 						</Link>
 					</Card>
-
-					<div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+<div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
 						{[top2, top3].map((project) => (
 							<Card key={project.slug}>
-								<Article project={project} views={views[project.slug] ?? 0} />
+								<Article project={project}  />
 							</Card>
 						))}
 					</div>
+					
 				</div>
 				<div className="hidden w-full h-px md:block bg-zinc-800" />
 
@@ -109,7 +99,7 @@ export default async function ProjectsPage() {
 							.filter((_, i) => i % 3 === 0)
 							.map((project) => (
 								<Card key={project.slug}>
-									<Article project={project} views={views[project.slug] ?? 0} />
+									<Article project={project}  />
 								</Card>
 							))}
 					</div>
@@ -118,7 +108,7 @@ export default async function ProjectsPage() {
 							.filter((_, i) => i % 3 === 1)
 							.map((project) => (
 								<Card key={project.slug}>
-									<Article project={project} views={views[project.slug] ?? 0} />
+									<Article project={project}  />
 								</Card>
 							))}
 					</div>
@@ -127,7 +117,7 @@ export default async function ProjectsPage() {
 							.filter((_, i) => i % 3 === 2)
 							.map((project) => (
 								<Card key={project.slug}>
-									<Article project={project} views={views[project.slug] ?? 0} />
+									<Article project={project}  />
 								</Card>
 							))}
 					</div>
