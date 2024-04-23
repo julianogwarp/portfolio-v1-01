@@ -37,8 +37,11 @@ export default async function ProjectsPage() {
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
     );
   
-const scrollToMain = () => {
-  
+const scrollToMain = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  // first prevent the default behavior
+  e.preventDefault();
+  // get the href and remove everything before the hash (#)
+ 
   window.scrollTo({
     top: 1000,
     behavior: "smooth",
@@ -56,13 +59,13 @@ const scrollToMain = () => {
             <h1 className="text-xl font-semi-bold tracking-tight align-middle text-zinc-500 md:text-4xl">
               Software Developer & Product Designer.
             </h1>
-
-            <button
-              onClick={() => scrollToMain()}
-              className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6"
-            >
-              <LucideChevronDown />
-            </button>
+            
+              <Link
+              onClick={scrollToMain}
+              className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6" href={""}              >
+                <LucideChevronDown />
+              </Link>
+        
           </div>
         </div>
 
