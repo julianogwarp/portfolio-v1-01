@@ -64,7 +64,7 @@ export default function RootLayout({
     <html
     	style={{ scrollBehavior: "smooth" }}
     	lang="en"
-    	className={[inter.variable, calSans.variable].join(" ") }
+    	className={[inter.variable, calSans.variable].join("") }
     >
       <head>
         <Analytics />
