@@ -38,7 +38,7 @@ export default async function ProjectsPage() {
     );
   
 const scrollToMain = () => {
-  console.log('scroll')
+  
   window.scrollTo({
     top: 1000,
     behavior: "smooth",
