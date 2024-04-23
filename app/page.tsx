@@ -61,9 +61,9 @@ const scrollToMain = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
             </h1>
             
               <Link
-              onClick={scrollToMain}
+              
               className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6" href={""}              >
-                <div />
+                <LucideChevronDown />
               </Link>
         
           </div>
