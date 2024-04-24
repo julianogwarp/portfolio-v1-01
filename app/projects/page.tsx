@@ -3,15 +3,15 @@ import { allProjects } from "contentlayer/generated";
 import Link from "next/link";
 import React, { useRef } from "react";
 import Image from "next/image";
-import { Card } from "./components/card";
-import { BottomCard } from "./components/bottomCard";
-import { Navigation } from "./components/nav";
-import { Article } from "./article";
-import { BottomArticle } from "./bottomArticle";
+import { Card } from "../components/card";
+import { BottomCard } from "../components/bottomCard";
+import { Navigation } from "../components/nav";
+import { Article } from "../article";
+import { BottomArticle } from "../bottomArticle";
 import { LucideChevronDown } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import "../mainpage.css";
+import "../../mainpage.css";
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
