@@ -15,6 +15,7 @@ import "../mainpage.css";
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
+  console.log('allProjects', allProjects)
   const featured = allProjects.find(
     
     (project) => project.slug === "margin-calculator"
@@ -49,6 +50,7 @@ const scrollToMain = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 };
   
   return (
+    
     <div className="relative">
       <div className="px-6 pt-22 mx-auto pt-12 space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="main-lettering max-w-6xl pb-80 md:pb-24 mx-auto lg:mx-0">
@@ -107,7 +109,7 @@ const scrollToMain = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
                     alt="blog"
                     width={650}
                     height={900}
-                    src={"favicon.png"}
+                    src={"/favicon.png"}
                   />
                 </div>
               </article>

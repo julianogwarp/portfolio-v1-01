@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const Article: React.FC<Props> = ({ project, imgWidth = 450, imgHeight = 900 }) => {
-	
+	console.log('project', project)
 	return (
     <Link href={`/${project.slug}`}>
       <article className="md:p-8 sm:p-8 p-4 cursor-fancy">
@@ -39,7 +39,7 @@ export const Article: React.FC<Props> = ({ project, imgWidth = 450, imgHeight = 
             alt="blog"
             width={imgWidth}
             height={imgHeight}
-            src={ "favicon.png"}
+            src={"/favicon.png"}
           />
         </div>
       </article>
