@@ -107,7 +107,7 @@ const scrollToMain = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
                     alt="blog"
                     width={650}
                     height={900}
-                    src={featured.image ? featured.image : "favicon.png"}
+                    src={"favicon.png"}
                   />
                 </div>
               </article>
