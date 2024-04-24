@@ -80,7 +80,7 @@ const scrollToMain = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
           className="grid grid-cols-1 gap-8 mt-80 mx-auto lg:grid-cols-2  "
         >
           <Card>
-            <Link href={`/${featured.slug}`}>
+            <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full md:p-8 sm:p-8 p-4 cursor-fancy">
                 <div className="flex items-center justify-between ">
                   <div className="text-sm text-sky-400">
