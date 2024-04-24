@@ -8,7 +8,6 @@ import { BottomCard } from "./components/bottomCard";
 import { Navigation } from "./components/nav";
 import { Article } from "./article";
 import { BottomArticle } from "./bottomArticle";
-import Particles from "./components/particles";
 import { LucideChevronDown } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +16,7 @@ import "../mainpage.css";
 export const revalidate = 60;
 export default async function ProjectsPage() {
   const featured = allProjects.find(
+    
     (project) => project.slug === "margin-calculator"
   )!;
   const top2 = allProjects.find((project) => project.slug === "nxr-agro")!;
