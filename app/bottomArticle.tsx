@@ -29,7 +29,7 @@ export const BottomArticle: React.FC<Props> = ({ project, imgWidth = 450, imgHei
           alt="blog"
           width={imgWidth}
           height={imgHeight}
-          src={project.image ? project.image : "favicon.png"}
+          src={ "favicon.png"}
         />
       </div>
     </article>
