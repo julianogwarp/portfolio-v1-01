@@ -5,14 +5,12 @@ import { Navigation } from "../components/nav";
 
 
 const socials = [
-	
 	{
 		icon: <Mail size={20} />,
 		href: "mailto:dev@chronark.com",
 		label: "Email",
 		handle: "julianogwarp@gmail.com",
-	},
-	
+	},	
 ];
 
 export default function Example() {
