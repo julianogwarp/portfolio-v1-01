@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Card } from '../components/card';
 import { Navigation } from '../components/nav';
 import { Article } from './article';
+import { BottomArticle } from './bottomArticle';
+import { BottomCard } from '../components/bottomCard';
 
 
 export const revalidate = 60;
@@ -66,11 +68,6 @@ export default async function ProjectsPage() {
                     src={featured.image ? featured.image : "favicon.png"}
                   />
                 </div>
-                <div className="absolute bottom-4 pt-8 md:bottom-8">
-                  <p className="hidden text-zinc-700 hover:text-zinc-300 lg:block">
-                    Read more <span aria-hidden="true">&rarr;</span>
-                  </p>
-                </div>
               </article>
             </Link>
           </Card>
@@ -85,34 +82,18 @@ export default async function ProjectsPage() {
             </Card>
           </div>
         </div>
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
-
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
-          <div className="grid grid-cols-1 gap-4">
+        <div className="mt-2 pb-20">
+          <div className="">
             {sorted
               .filter((_, i) => i % 3 === 0)
               .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} imgWidth={500} imgHeight={600} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 1)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} imgWidth={500} imgHeight={600} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 2)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} imgWidth={500} imgHeight={600} />
-                </Card>
+                <BottomCard key={project.slug}>
+                  <BottomArticle
+                    project={project}
+                    imgWidth={500}
+                    imgHeight={600}
+                  />
+                </BottomCard>
               ))}
           </div>
         </div>
