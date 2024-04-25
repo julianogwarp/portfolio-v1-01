@@ -61,7 +61,7 @@ export default async function ProjectsPage() {
             <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full md:p-8 sm:p-8 p-4 cursor-fancy">
                 <div className="flex items-center justify-between gap-2">
-                  <div className="text-xs text-zinc-100">
+                  <div className="text-sm text-sky-400">
                     {featured.date ? (
                       <time dateTime={new Date(featured.date).toISOString()}>
                         {Intl.DateTimeFormat(undefined, {
@@ -75,11 +75,11 @@ export default async function ProjectsPage() {
                 </div>
                 <h2
                   id="featured-post"
-                  className="mt-4 text-3xl font-bold text-zinc-700 group-hover:text-zinc-900 sm:text-4xl font-display"
+                  className="  text-zinc-700  sm:text-3xl font-display"
                 >
                   {featured.title}
                 </h2>
-                <p className="mt-4 mb-8 leading-8 duration-150 text-zinc-700 group-hover:text-zinc-300 ">
+                <p className="z-20 mt-4 mb-2 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-700 font-sans">
                   {featured.description}
                 </p>
                 <Image
