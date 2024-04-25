@@ -33,7 +33,7 @@ export default async function ProjectsPage() {
 	return (
     <div className="relative pb-16">
       <Navigation />
-      <div className="px-6 pt-16 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
             <Link href={`/projects/${featured.slug}`}>
@@ -82,7 +82,7 @@ export default async function ProjectsPage() {
             </Card>
           </div>
         </div>
-        <div className="mt-2 pb-20">
+        <div className="mt-2">
           <div className="">
             {sorted
               .filter((_, i) => i % 3 === 0)

@@ -10,23 +10,11 @@ import { LucideChevronDown } from "lucide-react";
 
 export const revalidate = 60;
 export default async function Home() {
-	
-			const scrollToMain = (
-        e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-      ) => {
-        // first prevent the default behavior
-        e.preventDefault();
-        // get the href and remove everything before the hash (#)
 
-        window.scrollTo({
-          top: 1000,
-          behavior: "smooth",
-        });
-      };
-	return (
+return (
     <div className="relative pb-16">
       <Navigation />
-      <div className="px-6 pt-22 mx-auto pt-12 space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+      <div className="px-6 pt-24 mx-auto  space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="main-lettering max-w-6xl pb-80 md:pb-24 mx-auto lg:mx-0">
           <h1 className="text-2xl font-bold tracking-tight text-zinc-900 md:text-4xl">
             I am Juliano Grendene.
