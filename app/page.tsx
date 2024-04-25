@@ -82,12 +82,14 @@ export default async function ProjectsPage() {
                 <p className="z-20 mt-4 mb-2 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-700 font-sans">
                   {featured.description}
                 </p>
+				 <div className="flex justify-center mt-20">
                 <Image
                   alt="blog"
                   width={300}
                   height={300}
                   src={featured.image ? featured.image : "favicon.png"}
                 />
+				 </div>
                 <div className="absolute bottom-4 pt-8 md:bottom-8">
                   <p className="hidden text-zinc-700 hover:text-zinc-50 lg:block">
                     Read more <span aria-hidden="true">&rarr;</span>
