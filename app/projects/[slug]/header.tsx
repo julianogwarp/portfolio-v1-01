@@ -11,7 +11,7 @@ type Props = {
     repository?: string;
 	tags?: [
 		tag: string
-		 ][];
+		 ];
 	
   };
 };
