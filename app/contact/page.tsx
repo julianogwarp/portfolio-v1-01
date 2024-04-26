@@ -7,7 +7,7 @@ import { Navigation } from "../components/nav";
 const socials = [
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:dev@chronark.com",
+		href: "mailto:julianogwarp@gmail.com",
 		label: "Email",
 		handle: "julianogwarp@gmail.com",
 	},	
